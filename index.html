@@ -59,7 +59,7 @@ td input[readonly]{color:#556680;}
 .upanel{border:1px solid #b7e0c9;border-radius:8px;padding:13px;margin-bottom:13px;background:#f7fafc;}
 .upanel-title{font-size:14px;font-weight:600;color:#1a2050;margin-bottom:9px;}
 .store-btns{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px;}
-.sbtn{padding:6px 15px;font-size:14px;border-radius:6px;border:1.5px solid #c0cee4;background:#fff;color:#2a3060;cursor:pointer;transition:all 0.15s;}
+.sbtn{padding:6px 15px;font-size:14px;border-radius:20px;border:1.5px solid #c0cee4;background:#fff;color:#2a3060;cursor:pointer;transition:all 0.15s;}
 .sbtn.sel{background:#1a6b3a;color:#fff;border-color:#1a6b3a;font-weight:600;}
 .sbtn:hover:not(.sel){background:#e8f5ee;border-color:#1a6b3a;}
 .dzone{border:2px dashed #7ecb9a;border-radius:8px;padding:20px;text-align:center;cursor:pointer;position:relative;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#fff;}
@@ -151,7 +151,7 @@ tr.g9 td{background:rgba(220,237,200,0.25)!important;}
 .cell-wrap input.ci{flex:1;min-width:0;}
 select.clr-sel{border:none;background:transparent;font-size:13px;cursor:pointer;padding:0;outline:none;width:20px;flex-shrink:0;appearance:none;-webkit-appearance:none;text-align:center;}
 /* collect tab */
-.ctab{padding:6px 15px;font-size:14px;font-weight:600;border-radius:6px;border:1.5px solid #1a6b3a;background:#fff;color:#1a6b3a;cursor:pointer;transition:all 0.15s;}
+.ctab{padding:6px 15px;font-size:14px;font-weight:600;border-radius:20px;border:1.5px solid #1a6b3a;background:#fff;color:#1a6b3a;cursor:pointer;transition:all 0.15s;}
 .ctab.active{background:#1a6b3a;color:#fff;}
 .ctab:hover:not(.active){background:#e2f4eb;}
 .pending-box{margin-top:14px;border:2px solid #ea6c00;border-radius:8px;overflow:hidden;max-width:480px;}
@@ -180,7 +180,7 @@ select.clr-sel{border:none;background:transparent;font-size:13px;cursor:pointer;
 .mfgrand{background:#b7e0c9;}
 /* sub tabs */
 .sub-tabs{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap;}
-.stab{padding:6px 15px;font-size:14px;border-radius:6px;border:1.5px solid #c0cee4;background:#fff;color:#2a3060;cursor:pointer;transition:all 0.15s;}
+.stab{padding:6px 15px;font-size:14px;border-radius:20px;border:1.5px solid #c0cee4;background:#fff;color:#2a3060;cursor:pointer;transition:all 0.15s;}
 .stab.active{background:#1a6b3a;color:#fff;border-color:#1a6b3a;font-weight:600;}
 .stab:hover:not(.active){background:#e8f5ee;border-color:#1a6b3a;}
 .stab.active{background:#1a6b3a;color:#fff;border-color:#1a6b3a;}
@@ -188,7 +188,7 @@ select.clr-sel{border:none;background:transparent;font-size:13px;cursor:pointer;
 .sub-page.active{display:block;}
 /* payroll */
 .pay-store-tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
-.pstab{padding:6px 15px;font-size:14px;font-weight:500;border-radius:6px;border:1.5px solid #c0cee4;background:#fff;color:#2a3060;cursor:pointer;transition:all 0.15s;}
+.pstab{padding:6px 15px;font-size:14px;font-weight:500;border-radius:20px;border:1.5px solid #c0cee4;background:#fff;color:#2a3060;cursor:pointer;transition:all 0.15s;}
 .pstab.active{background:#1a6b3a;color:#fff;border-color:#1a6b3a;font-weight:600;}
 .pstab:hover:not(.active){background:#e8f5ee;border-color:#1a6b3a;}
 .pay-page{display:none;}
@@ -200,41 +200,8 @@ select.clr-sel{border:none;background:transparent;font-size:13px;cursor:pointer;
 .hint{font-size:14px;color:#445544;margin-bottom:8px;}
 .hint b{color:#1a6b3a;}
 </style>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<style>
-#login-overlay{position:fixed;inset:0;background:#1a4731;display:flex;align-items:center;justify-content:center;z-index:9999;}
-#login-overlay.hidden{display:none;}
-.login-box{background:#fff;border-radius:16px;padding:40px 36px;width:360px;box-shadow:0 8px 40px rgba(0,0,0,0.3);text-align:center;}
-.login-box h2{font-size:20px;font-weight:700;color:#1a4731;margin-bottom:6px;}
-.login-box .sub{font-size:13px;color:#999;margin-bottom:28px;}
-.login-inp{width:100%;border:1.5px solid #e0e5eb;border-radius:8px;padding:10px 14px;font-size:14px;font-family:inherit;outline:none;margin-bottom:12px;}
-.login-inp:focus{border-color:#1a6b3a;}
-.login-btn{width:100%;padding:11px;border-radius:20px;border:none;background:#1a6b3a;color:#fff;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:10px;}
-.login-btn:hover{background:#1a4731;}
-.login-err{color:#c62828;font-size:12px;margin-top:6px;min-height:18px;}
-.login-user{position:fixed;top:12px;right:16px;font-size:12px;color:#fff;z-index:99999;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.3);padding:4px 10px;border-radius:20px;}
-.logout-btn{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;border-radius:12px;padding:3px 10px;font-size:11px;cursor:pointer;}
-</style>
 </head>
 <body>
-<!-- 登入畫面 -->
-<div id="login-overlay">
-  <div class="login-box">
-    <h2>🏢 梁平稅務系統</h2>
-    <p class="sub">請登入以繼續使用</p>
-    <input class="login-inp" type="email" id="login-email" placeholder="Email">
-    <input class="login-inp" type="password" id="login-pw" placeholder="密碼" onkeydown="if(event.key==='Enter')doLogin()">
-    <button class="login-btn" onclick="doLogin()">登入</button>
-    <div class="login-err" id="login-err"></div>
-  </div>
-</div>
-<!-- 右上角使用者資訊 -->
-<div class="login-user" id="user-bar" style="display:none;">
-  <span id="user-email"></span>
-  <button class="logout-btn" onclick="doLogout()">登出</button>
-</div>
-
 <div class="side-nav">
   <div class="app-title">梁平稅務系統</div>
   <button class="active" onclick="nav('inv')">📄 發票</button>
@@ -658,124 +625,6 @@ select.clr-sel{border:none;background:transparent;font-size:13px;cursor:pointer;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
-
-// ===== SUPABASE =====
-const _SB_URL='https://mduozegowtwroukmldrd.supabase.co';
-const _SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1kdW96ZWdvd3R3cm91a21sZHJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNjc3NzIsImV4cCI6MjA5NTk0Mzc3Mn0.foYncn96KflxWShscj_OJoJvmg6zOwN6E-RvnQlJtww';
-const _sb=supabase.createClient(_SB_URL,_SB_KEY);
-let _sbUser=null;
-
-async function doLogin(){
-  const email=document.getElementById('login-email').value.trim();
-  const pw=document.getElementById('login-pw').value;
-  const err=document.getElementById('login-err');
-  err.textContent='登入中...';
-  const {data,error}=await _sb.auth.signInWithPassword({email,password:pw});
-  if(error){err.textContent='❌ '+error.message;return;}
-  onLoginSuccess(data.user);
-}
-
-async function doLogout(){
-  await _sb.auth.signOut();
-  _sbUser=null;
-  document.getElementById('login-overlay').classList.remove('hidden');
-  document.getElementById('user-bar').style.display='none';
-}
-
-function onLoginSuccess(user){
-  _sbUser=user;
-  document.getElementById('login-overlay').classList.add('hidden');
-  document.getElementById('user-bar').style.display='flex';
-  document.getElementById('user-email').textContent=user.email;
-  document.getElementById('login-err').textContent='';
-  // 載入雲端資料
-  cloudLoad();
-}
-
-// ===== 雲端存取 =====
-async function cloudSave(key,value){
-  if(!_sbUser)return;
-  const {error}=await _sb.from('tax_data').upsert({
-    user_id:_sbUser.id,
-    key:key,
-    value:JSON.stringify(value),
-    updated_at:new Date().toISOString()
-  },{onConflict:'user_id,key'});
-  if(error)console.error('cloudSave error:',error);
-}
-
-async function cloudGet(key){
-  if(!_sbUser)return null;
-  const {data,error}=await _sb.from('tax_data').select('value').eq('user_id',_sbUser.id).eq('key',key).single();
-  if(error||!data)return null;
-  try{return JSON.parse(data.value);}catch{return null;}
-}
-
-async function cloudLoad(){
-  const keys=['inv','col','rec','mf','oi','dv','emp','pay','sv','vdir','ts','tsrates','zy','my'];
-  const {data,error}=await _sb.from('tax_data').select('key,value').eq('user_id',_sbUser.id);
-  if(error||!data){ loadAll(); initApp(); return; }
-  function _nk(src,def){const r={};for(let i=0;i<12;i++)r[i]=src[i]!==undefined?src[i]:src[String(i)]!==undefined?src[String(i)]:def();return r;}
-  const map={};
-  data.forEach(row=>{ try{map[row.key]=JSON.parse(row.value);}catch{} });
-  if(map.inv)invData=_nk(map.inv,()=>[]);
-  if(map.col)colData=_nk(map.col,()=>[]);
-  if(map.rec)recData=map.rec;
-  if(map.mf)mfData=_nk(map.mf,()=>({'梁鑫':{},'府中':{},'景新':{}}));
-  if(map.oi)oiData=_nk(map.oi,()=>[]);
-  if(map.dv)dvData=_nk(map.dv,()=>[]);
-  if(map.emp)empData=map.emp;
-  if(map.pay)payData=map.pay;
-  if(map.sv)svData=map.sv;
-  if(map.vdir)vendorDir=map.vdir;
-  if(map.ts)tsData=map.ts;
-  if(map.tsrates)tsRates=map.tsrates;
-  initApp();
-  if(map.zy||map.my){
-    setTimeout(()=>{
-      if(map.zy){
-        if(map.zy.lx&&document.getElementById('zy-lx'))document.getElementById('zy-lx').value=map.zy.lx;
-        if(map.zy.fc&&document.getElementById('zy-fc'))document.getElementById('zy-fc').value=map.zy.fc;
-        if(map.zy.jx&&document.getElementById('zy-jx'))document.getElementById('zy-jx').value=map.zy.jx;
-      }
-      if(map.my){
-        if(map.my.lx&&document.getElementById('my-lx'))document.getElementById('my-lx').value=map.my.lx;
-        if(map.my.fc&&document.getElementById('my-fc'))document.getElementById('my-fc').value=map.my.fc;
-        if(map.my.jx&&document.getElementById('my-jx'))document.getElementById('my-jx').value=map.my.jx;
-      }
-      calcZhenyuan();calcMingyang();
-    },500);
-  }
-}
-
-// 覆寫 autoSave → 同時存 localStorage + 雲端
-async function autoSave(){
-  saveAll(); // 還是存 localStorage 當備援
-  if(!_sbUser)return;
-  const zy={lx:document.getElementById('zy-lx')?.value||'',fc:document.getElementById('zy-fc')?.value||'',jx:document.getElementById('zy-jx')?.value||''};
-  const my={lx:document.getElementById('my-lx')?.value||'',fc:document.getElementById('my-fc')?.value||'',jx:document.getElementById('my-jx')?.value||''};
-  // 批次儲存（防止太頻繁）
-  clearTimeout(window._saveTimer);
-  window._saveTimer=setTimeout(async()=>{
-    const saves=[
-      ['inv',invData],['col',colData],['rec',recData],['mf',mfData],
-      ['oi',oiData],['dv',dvData],['emp',empData],['pay',payData],
-      ['sv',svData],['vdir',vendorDir],['ts',tsData],['tsrates',tsRates],
-      ['zy',zy],['my',my]
-    ];
-    for(const [k,v] of saves) await cloudSave(k,v);
-  },1500); // 1.5秒後才存，避免每打一個字就存
-}
-
-// 檢查登入狀態
-async function checkAuth(){
-  const {data}=await _sb.auth.getSession();
-  if(data?.session?.user){
-    onLoginSuccess(data.session.user);
-  }
-}
-
-
 // ===== CONSTANTS =====
 const STORES=['新生北','泉州','新莊','鑫耀鑫','梁鑫','鑫營','府中','景新','天津','大直','心惦','幸福','福城','梁平'];
 const OPEN_STORES=['梁平','梁鑫','府中','景新'];
@@ -2841,10 +2690,9 @@ dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('on');});
 dz.addEventListener('dragleave',()=>{if(!selStore)dz.classList.remove('on');});
 dz.addEventListener('drop',e=>{e.preventDefault();handleFiles(e.dataTransfer.files);});
 
-// INIT - 由 checkAuth() 觸發
+// INIT
 buildStoreSel();
-
-function initApp(){
+loadAll();
 // 預填截圖中的4月資料（如果尚未有資料）
 (function(){
   const m=3; // 4月
@@ -2870,9 +2718,7 @@ renderInv();
 renderExQuery();
 initInvoiceEnter();
 loadZyMy();
-}
 setInterval(autoSave, 30000);
-checkAuth();
 
 // 全系統 Enter 跳下一格
 document.addEventListener('keydown',function(e){
